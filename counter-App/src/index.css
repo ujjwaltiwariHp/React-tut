@@ -1,0 +1,11 @@
+/* Apply to whole app */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}

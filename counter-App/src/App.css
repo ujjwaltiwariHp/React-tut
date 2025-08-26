@@ -1,0 +1,62 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Counter colors */
+.positive {
+  color: green;
+}
+.negative {
+  color: red;
+}
+.neutral {
+  color: gray;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Button base style */
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Different button styles */
+.increment {
+  background-color: #28a745;
+}
+.increment:hover {
+  background-color: #218838;
+}
+
+.decrement {
+  background-color: #dc3545;
+}
+.decrement:hover {
+  background-color: #c82333;
+}
+
+.reset {
+  background-color: #007bff;
+}
+.reset:hover {
+  background-color: #0056b3;
+}
