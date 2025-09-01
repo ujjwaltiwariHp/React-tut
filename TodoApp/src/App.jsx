@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
+import { Register, Home } from "./pages/index";
 
 function App() {
   const { isAuthenticated } = useSelector((s) => s.auth);

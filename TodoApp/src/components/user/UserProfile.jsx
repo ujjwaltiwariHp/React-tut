@@ -1,7 +1,7 @@
 import { X, User, Mail, Calendar, Cog, Phone, Briefcase } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getUserProfileThunk } from "../store/slices/authSlice";
+import { getUserProfileThunk } from "../../store/slices/authSlice";
 
 function UserProfile({ onClose }) {
   const dispatch = useDispatch();

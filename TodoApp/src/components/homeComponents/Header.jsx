@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { logout, getUserProfileThunk } from "../store/slices/authSlice";
+import { logout, getUserProfileThunk } from "../../store/slices/authSlice";
 import { LogOut, User, Cog, Bell } from "lucide-react";
-import UserProfile from "./UserProfile";
+import {UserProfile} from "../../components/index";
 
 function Header() {
   const dispatch = useDispatch();

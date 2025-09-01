@@ -1,8 +1,8 @@
-import apiClient from "../api/apiClient";
-import { asyncWrapper } from "../utils/asyncWrapper";
-import { getErrorMessage } from "../utils/errorHandler";
+import {apiClient }from "../index";
+import { asyncWrapper, getErrorMessage } from "../../utils/index";
 
-export const registerUser = async (formData) => {
+
+const registerUser = async (formData) => {
   const result = await asyncWrapper(() =>
     apiClient.post("/register", formData, {
       headers: { "Content-Type": "multipart/form-data" },
@@ -11,3 +11,4 @@ export const registerUser = async (formData) => {
   if (!result.success) return { success: false, message: getErrorMessage(result.error) };
   return { success: true, data: result.data?.data ?? result.data };
 };
+export default registerUser;

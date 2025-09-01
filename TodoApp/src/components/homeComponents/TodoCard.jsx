@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo, updateTodo } from "../store/slices/todoSlice";
+import { toggleTodo, deleteTodo, updateTodo } from "../../store/slices/todoSlice";
 import {
   Trash2,
   Edit,
@@ -12,8 +12,7 @@ import {
   X,
   Watch
 } from "lucide-react";
-import DateTimePicker from "./DateTimePicker";
-import CustomDropdown from "./CustomDropdown";
+import {DateTimePicker,CustomDropdown} from "../../components/index";
 
 function TodoCard({ todo, index }) {
   const dispatch = useDispatch();

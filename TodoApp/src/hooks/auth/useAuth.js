@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { authenticate, logout } from "../store/slices/authSlice";
+import { authenticate, logout } from "../../store/slices/authSlice";
 
 export default function useAuth() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Button from "../components/Button";
+import { Button } from "../../components/index";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUserThunk } from "../store/slices/authSlice";
-import { validateResumeFile } from "../utils/fileValidator";
+import { registerUserThunk } from "../../store/slices/authSlice";
+import { validateResumeFile } from "../../utils/fileValidator";
 import { useNavigate } from "react-router-dom";
 import { Mail, User, Phone, FileText, Briefcase, Upload } from "lucide-react";
 

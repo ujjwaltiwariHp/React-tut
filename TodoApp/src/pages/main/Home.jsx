@@ -1,15 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addTodo, clearCompleted } from "../store/slices/todoSlice";
+import  {addTodo}  from "../../store/slices/todoSlice";
+import{ clearCompleted }from "../../store/slices/todoSlice";
 import { Plus, Flag } from "lucide-react";
-import Button from "../components/Button";
-import Header from "../components/Header";
-import TodoCard from "../components/TodoCard";
-import DateTimePicker from "../components/DateTimePicker";
-import CustomDropdown from "../components/CustomDropdown";
-
+import {Button,Header,TodoCard,DateTimePicker,CustomDropdown} from "../../components/index";
 function Home() {
   const dispatch = useDispatch();
+
   const todos = useSelector((s) => s.todos);
   const [text, setText] = useState("");
   const [date, setDate] = useState("");
@@ -18,7 +15,7 @@ function Home() {
 
   const onAdd = (e) => {
     e.preventDefault();
-    if (!text.trim()) return;
+    if (!text.trim()) return
     dispatch(
       addTodo({
         text: text.trim(),
@@ -27,6 +24,7 @@ function Home() {
         priority,
       })
     );
+
     setText("");
     setDate("");
     setTime("");
