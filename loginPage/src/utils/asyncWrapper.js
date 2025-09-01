@@ -1,4 +1,3 @@
-// src/utils/asyncWrapper.js
 export const asyncWrapper = async (asyncFn) => {
   try {
     const data = await asyncFn();

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputField from "../components/InputField";
 import FileUpload from "../components/FileUpload";
 import Button from "../components/Button";
-import { submitCandidateForm } from "../services/candidateService";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUserThunk } from "../store/slices/authSlice";
 import { validateResumeFile } from "../utils/fileValidator";
+import { useNavigate } from "react-router-dom";
 
-function CandidateForm() {
+function Register() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,7 +16,10 @@ function CandidateForm() {
     resume_url: null,
   });
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isAuthenticated, loading, error: authError } = useSelector((s) => s.auth);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -32,24 +37,19 @@ function CandidateForm() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
-
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
-
-    const result = await submitCandidateForm(data);
-    setLoading(false);
-
-    if (!result.success) {
-      setError(result.message);
-    } else {
-      alert("Application submitted successfully!");
-      setForm({ name: "", email: "", phone: "", experience: "", resume_url: null });
-    }
+    dispatch(registerUserThunk(data));
   };
+
+    useEffect(() => {
+     if (isAuthenticated) {
+    navigate("/home", { replace: true });
+     }
+   }, [isAuthenticated, navigate]);
+
 
   return (
     <div className="max-w-2xl mx-auto mt-10 bg-white shadow-xl rounded-2xl p-8">
@@ -61,17 +61,19 @@ function CandidateForm() {
         <InputField label="Experience" name="experience" value={form.experience} onChange={handleChange} required />
 
         <div className="col-span-2">
-          <FileUpload onChange={handleChange} file={form.resume} />
+          <FileUpload onChange={handleChange} file={form.resume_url} />
         </div>
 
-        {error && <p className="text-red-600 text-sm font-medium col-span-2">{error}</p>}
+        {(error || authError) && (
+          <p className="text-red-600 text-sm font-medium col-span-2">{error || authError}</p>
+        )}
 
         <div className="col-span-2">
-          <Button label="Submit ➝" loading={loading} />
+          <Button label={loading ? "Submitting..." : "Submit ➝"} loading={loading} />
         </div>
       </form>
     </div>
   );
 }
 
-export default CandidateForm;
+export default Register;

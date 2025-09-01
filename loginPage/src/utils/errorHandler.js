@@ -1,4 +1,3 @@
-// src/utils/errorHandler.js
 export const getErrorMessage = (error) => {
   const status = error?.response?.status;
 

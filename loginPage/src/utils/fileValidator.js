@@ -1,4 +1,3 @@
-// src/utils/fileValidator.js
 export const validateResumeFile = (file) => {
   if (!file) return "File is required.";
   const allowedTypes = [
@@ -11,5 +10,5 @@ export const validateResumeFile = (file) => {
   if (file.size > 5 * 1024 * 1024) {
     return "File size must be less than 5MB.";
   }
-  return null; // ✅ No error
+  return null;
 };

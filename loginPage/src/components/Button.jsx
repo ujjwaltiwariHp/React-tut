@@ -1,4 +1,3 @@
-// src/components/Button.jsx
 function Button({ label, loading }) {
   return (
     <button
