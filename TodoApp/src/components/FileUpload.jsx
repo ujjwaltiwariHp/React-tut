@@ -1,6 +1,7 @@
 function FileUpload({ onChange, file }) {
   return (
-    <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50">
+    <label className="flex flex-col items-center justify-center w-full h-32 border-2
+    border-dashed rounded-lg cursor-pointer hover:bg-gray-50">
       <input
         type="file"
         name="resume_url"
