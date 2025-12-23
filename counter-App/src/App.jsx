@@ -1,21 +1,20 @@
-import{ useState } from 'react'
+import { useState } from "react";
+import "./App.css";
 
+function App() {
+  const [count, setCount] = useState(0);
 
-
-function App (){
-
-  const [count, setCount] = useState(0)
   return (
-    <div style={{textAlign:"center", marginTop:"300px", fontSize:"20px"}}>
+    <div className="container">
+      <h1 className={count > 0 ? "positive" : count < 0 ? "negative" : "neutral"}>Counter: {count}</h1>
 
-      <h1>Counter :{count}</h1>
-
-      <button onClick ={()=> setCount(count+1)}>Increment</button>
-      <button onClick ={()=> setCount(count-1)}>Decrement</button>
-      <button onClick ={()=> setCount(0)}>Reset</button>
-      
+      <div className="btn-group">
+        <button onClick={() => setCount(count + 1)} className="btn increment"> Increment </button>
+        <button onClick={() => setCount(count > 0 ? count - 1 : 0)} className="btn decrement" >Decrement</button>
+        <button onClick={() => setCount(0)} className="btn reset">Reset</button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

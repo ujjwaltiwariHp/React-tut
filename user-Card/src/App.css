@@ -1,0 +1,85 @@
+/* Layout for 5 equal cards in one row */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* exactly 5 per row */
+  gap: 10px;
+  justify-items: center;
+  margin: 20px auto;
+}
+
+/* Card box */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  width: 300px;
+  height: 360px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0.1,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Profile pic */
+.card-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+/* Fallback avatar */
+.avatar-fallback {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  color: #060606;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin: 0 auto 12px;
+}
+
+/* Name & role */
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-role {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Contact */
+.contact {
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Email button */
+.email-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(to right, #ff3c57, #ff7861);
+  color: white;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+
+.email-btn:hover {
+  background: linear-gradient(to right, #ff5e7b, #ff9b7c);
+  box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
+}
